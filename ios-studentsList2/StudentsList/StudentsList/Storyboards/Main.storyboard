@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uJk-Zj-96d">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="uGi-NJ-O48">
+            <objects>
+                <viewController id="uJk-Zj-96d" customClass="MainViewController" customModule="StudentsList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6tp-Lz-3wF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="im7-yl-nTb">
+                                <rect key="frame" x="0.0" y="64" width="414" height="798"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZAG-8i-kEY">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="46"/>
+                                        <subviews>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ghM-QB-7op">
+                                                <rect key="frame" x="141.5" y="0.0" width="131" height="47"/>
+                                                <segments>
+                                                    <segment title="First"/>
+                                                    <segment title="Second"/>
+                                                </segments>
+                                            </segmentedControl>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="ghM-QB-7op" secondAttribute="bottom" id="38v-bI-RqB"/>
+                                            <constraint firstItem="ghM-QB-7op" firstAttribute="top" secondItem="ZAG-8i-kEY" secondAttribute="top" id="Y9Y-sj-LgV"/>
+                                            <constraint firstItem="ghM-QB-7op" firstAttribute="centerX" secondItem="ZAG-8i-kEY" secondAttribute="centerX" id="ck9-ZI-ukf"/>
+                                        </constraints>
+                                    </view>
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nHn-pg-OMQ">
+                                        <rect key="frame" x="0.0" y="54" width="414" height="744"/>
+                                        <connections>
+                                            <segue destination="Hnl-s8-Lii" kind="embed" identifier="EmbeddedStudentsTableViewSegue" id="6Nf-Eo-Nhp"/>
+                                        </connections>
+                                    </containerView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="im7-yl-nTb" firstAttribute="leading" secondItem="tGp-UQ-vE2" secondAttribute="leading" id="Al5-Xg-zgi"/>
+                            <constraint firstItem="im7-yl-nTb" firstAttribute="top" secondItem="tGp-UQ-vE2" secondAttribute="top" constant="20" id="GlE-Qa-aEM"/>
+                            <constraint firstItem="tGp-UQ-vE2" firstAttribute="trailing" secondItem="im7-yl-nTb" secondAttribute="trailing" id="fFK-5f-k56"/>
+                            <constraint firstItem="tGp-UQ-vE2" firstAttribute="bottom" secondItem="im7-yl-nTb" secondAttribute="bottom" id="fqi-mI-D9y"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tGp-UQ-vE2"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dFb-yn-D5h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1097.1014492753625" y="-197.54464285714286"/>
+        </scene>
+        <!--Students Table View Controller-->
+        <scene sceneID="QSR-Sm-Ghc">
+            <objects>
+                <tableViewController id="Hnl-s8-Lii" customClass="StudentsTableViewController" customModule="StudentsList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5ah-wc-D13">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="744"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StudentCell" id="gmj-SA-cgS">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gmj-SA-cgS" id="qKr-Hw-vq2">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Hnl-s8-Lii" id="soo-Tl-kVl"/>
+                            <outlet property="delegate" destination="Hnl-s8-Lii" id="msl-VY-CWI"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zrT-bb-twB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-323" y="-204"/>
+        </scene>
+    </scenes>
+</document>
