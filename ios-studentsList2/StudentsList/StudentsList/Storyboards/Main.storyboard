@@ -23,11 +23,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="46"/>
                                         <subviews>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ghM-QB-7op">
-                                                <rect key="frame" x="141.5" y="0.0" width="131" height="47"/>
+                                                <rect key="frame" x="121.5" y="0.0" width="171" height="47"/>
                                                 <segments>
-                                                    <segment title="First"/>
-                                                    <segment title="Second"/>
+                                                    <segment title="First Name"/>
+                                                    <segment title="Last Name"/>
                                                 </segments>
+                                                <connections>
+                                                    <action selector="sort:" destination="uJk-Zj-96d" eventType="valueChanged" id="uqs-N4-9Al"/>
+                                                </connections>
                                             </segmentedControl>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -55,6 +58,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tGp-UQ-vE2"/>
                     </view>
+                    <connections>
+                        <outlet property="sortSelector" destination="ghM-QB-7op" id="eqE-hK-rGB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFb-yn-D5h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -86,7 +92,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zrT-bb-twB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-323" y="-204"/>
+            <point key="canvasLocation" x="-319" y="-198"/>
         </scene>
     </scenes>
 </document>
