@@ -1,5 +1,6 @@
 import Cocoa
 
+
 // Higher order function is nothing more than passing a function as an argument
 
 // Write a function that adds 3 to a number.
@@ -81,22 +82,24 @@ func printMath(number: Int, function: (Int) -> Int) {
 printMath(number: 5, function: addThree)
 printMath(number: 5, function: addThreeFunction)
 // 3rd way of doing this
+//printMath(number: 5, function: { number in return number + 3 })
+
+
+//{ (theNumber: Int) -> Int in return theNumber + 3 }
+
+// This closure is fully specified - this is the default form of a closure
+printMath(number: 5, function: { (theNumber: Int) -> Int in return theNumber + 3 })
+// This is the shortened adoptation
 printMath(number: 5, function: { number in return number + 3 })
-
-
-{ (theNumber: Int) -> Int in return theNumber + 3 }
-
-// This closure is fully specified
-printMath(number: 5, function: { (theNumber: Int) -> Int in return theNumber +3 })
 
 // We now omit the return type. We can do this because the function (line 77) is typed (Int) -> (Int), This is called inference or type inference
 // Because it unambiguously knows the type of the 'function' argument, it can infer nearly all of the signature
 // We can also get rid of the type of the argument
 // We can aslo get rid of the parentheses
-printMath(number: 5, function: { number in return number +3 })
+printMath(number: 5, function: { number in return number + 3 })
 
 // We will now get rid of the signature ENTIRELY
-printMath(number: 5, function: { return $0 +3 })
+printMath(number: 5, function: { return $0 + 3 })
 
 // $0 means the FIRST Shorthand Argument Name
 // $1, $2, $3 and so forth.
@@ -106,9 +109,40 @@ printMath(number: 5, function: { return $0 +3 })
 // from one function to another function to another function and so forth.
 
 // Shorthand argument names are hard to read
-// They
+// They don't have any context clues as to what they do (because their names usually say what they do
 
+// GOOD SHORTHAND ARGUMENT USE
+let sortedNumbers = [1, 5, 3, 9, 2, 8, 7].sorted(by: { $0 > $1 })
+sortedNumbers
+let sortedNumbers2 = [1, 5, 3, 9, 2, 8, 7].sorted(by: >)
+let sortedNumbers3 = [1, 5, 3, 9, 2, 8, 7].sorted(by: { (value1: Int, value2: Int) -> Bool in
+	return value1 > value2
+})
 
+// TRAILING CLOSURES
+// When you pass a closure as the LAST ARGUMENT OF A FUNCTION, you can
+// call that function using "trailing closure" syntax
+// The reason this was developed was to allow swift functions to look as
+// if they were built-in parts of the language.
+
+/*
+if a > b {
+	...whatever code here...
+}
+*/
+
+// Keys to trailing closures:
+//
+// * Drop the last label and its colon (You probably need to get rid of the commas as well)
+// * Close with parenthesis
+// * Use braces
+// * Only do this for things without side effects, preferably nothing that returns a value.
+
+// These two are identical but the second one uses a trailing closure
+printMath(number: 5, function: { number in return number + 3 })
+printMath(number: 5) {
+	return $0 + 3
+}
 
 // error: Cannot convert value of type '() -> ()' to expected argument type '(Int) -> Int'
 // Swift is a type safe language and it will crash
@@ -116,3 +150,21 @@ printMath(number: 5, function: { return $0 +3 })
 // and the type of the function it expects
 // For example:
 //printMath(number: 5, function: foobias)
+
+
+//----------------------------------------------------
+// Given an array of numbers, convert all of them to strings and return an array of those strings
+
+func convertToStrings(from array: [Int]) -> [String] {
+	return array.map({ String($0) })
+}
+
+let numbers = [1, 5, 3, 9, 2, 8, 7]
+let strings = convertToStrings(from: numbers)
+print(strings)
+
+numbers.map(addThree)
+
+// Higher order functions let you send _behavior_ as an argument
+// A "completion" or a "handler" or a "completion handler"
+// And you use these when dealing with asynchronous operations
