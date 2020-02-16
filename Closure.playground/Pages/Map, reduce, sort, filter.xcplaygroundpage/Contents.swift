@@ -56,9 +56,9 @@ var names = ["Vincent", "Spencer", "Erica", "Marilyn", "Regine", "Irena", "Bob"]
 
 // This is the simplified version of the maps function
 // The compiler is smart enough to infer that the return type should be Int because it needs to return the count.
-let lengths = names.map { $0.count }
-
-print(lengths)
+//let lengths = names.map { $0.count }
+//
+//print(lengths)
 
 // -------------------------------------------------------
 
@@ -72,3 +72,11 @@ print(lengths)
 //print(lengths)
 
 
+// -------------------------------------------------------
+// Compact map looks at the values to see if it is possible to "map"/convert to another type and if not leave that element out.
+
+let strings = ["Five", "6", "123", "Forty-Five"]
+
+let numbers = strings.compactMap { Int($0) }
+
+print(numbers)
