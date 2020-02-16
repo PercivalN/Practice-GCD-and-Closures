@@ -29,8 +29,46 @@ import Foundation
 
 // -------------------------------------------------------
 // This is the filter function.
+//var names = ["Vincent", "Spencer", "Erica", "Marilyn", "Regine", "Irena", "Bob"]
+//
+//let shortNames = names.filter { $0.count < 4 }
+//
+//print(shortNames)
+
+
+// -------------------------------------------------------
+// This is the map function. It lets one replace every member of the array with something else.
+
 var names = ["Vincent", "Spencer", "Erica", "Marilyn", "Regine", "Irena", "Bob"]
 
-let shortNames = names.filter { $0.count < 4 }
+// This is a regular algorithm and doesn't use the map function
+//var lengths: [Int] = []
+//for name in names {
+//	lengths.append(name.count)
+//}
 
-print(shortNames)
+// This is the maps function
+//let lengths = names.map { (name) -> Int in
+//	return name.count
+//}
+
+
+
+// This is the simplified version of the maps function
+// The compiler is smart enough to infer that the return type should be Int because it needs to return the count.
+let lengths = names.map { $0.count }
+
+print(lengths)
+
+// -------------------------------------------------------
+
+//var names = ["Vincent", "Spencer", "Erica", "Marilyn", "Regine", "Irena", "Bob"]
+//
+//var lengths: [Int] = []
+//for name in names {
+//	lengths.append(name.count)
+//}
+//
+//print(lengths)
+
+
