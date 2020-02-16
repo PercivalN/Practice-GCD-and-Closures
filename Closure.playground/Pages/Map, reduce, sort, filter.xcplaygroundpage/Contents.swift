@@ -75,8 +75,41 @@ var names = ["Vincent", "Spencer", "Erica", "Marilyn", "Regine", "Irena", "Bob"]
 // -------------------------------------------------------
 // Compact map looks at the values to see if it is possible to "map"/convert to another type and if not leave that element out.
 
-let strings = ["Five", "6", "123", "Forty-Five"]
+//let strings = ["Five", "6", "123", "Forty-Five"]
+//
+//let numbers = strings.compactMap { Int($0) }
+//
+//print(numbers)
 
-let numbers = strings.compactMap { Int($0) }
 
-print(numbers)
+// -------------------------------------------------------
+// Reduce function
+
+let ages: [Double] = [10, 42, 27, 63, 45, 33, 101]
+
+// This is the normal algorithm that does the same as the reduce closure
+//var sum = 0
+//for age in ages {
+//	sum += age
+//}
+//let avg = Double(sum) / Double(ages.count)
+
+// 0.0 is the initial value
+// memo acts like sum in the previous example
+// value is the value that we add to memo
+// This only gives us the sum
+//let sum = ages.reduce(0.0) { $0 + $1 }
+//
+//
+//let avg = sum / Double(ages.count)
+
+// This is a very abbreviated way to write a reduce function, but not the best way to write it because it is not readable and others will not recognize it instantly whereas the regular algorithm is.
+let avg = ages.reduce(0.0, +) / Double(ages.count)
+
+print(avg)
+
+// -------------------------------------------------------
+
+func myMap(array: [String], closure: (String) -> String) -> [String] {
+	
+}
