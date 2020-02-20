@@ -13,6 +13,7 @@
 		DDCA2F8423FE65630097FF5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDCA2F8223FE65630097FF5B /* Main.storyboard */; };
 		DDCA2F8623FE65680097FF5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDCA2F8523FE65680097FF5B /* Assets.xcassets */; };
 		DDCA2F8923FE65680097FF5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDCA2F8723FE65680097FF5B /* LaunchScreen.storyboard */; };
+		DDCA2F9123FE72C90097FF5B /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCA2F9023FE72C90097FF5B /* ViewController2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		DDCA2F8523FE65680097FF5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDCA2F8823FE65680097FF5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDCA2F8A23FE65680097FF5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDCA2F9023FE72C90097FF5B /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				DDCA2F7C23FE65630097FF5B /* AppDelegate.swift */,
 				DDCA2F7E23FE65630097FF5B /* SceneDelegate.swift */,
 				DDCA2F8023FE65630097FF5B /* ViewController.swift */,
+				DDCA2F9023FE72C90097FF5B /* ViewController2.swift */,
 				DDCA2F8223FE65630097FF5B /* Main.storyboard */,
 				DDCA2F8523FE65680097FF5B /* Assets.xcassets */,
 				DDCA2F8723FE65680097FF5B /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDCA2F8123FE65630097FF5B /* ViewController.swift in Sources */,
+				DDCA2F9123FE72C90097FF5B /* ViewController2.swift in Sources */,
 				DDCA2F7D23FE65630097FF5B /* AppDelegate.swift in Sources */,
 				DDCA2F7F23FE65630097FF5B /* SceneDelegate.swift in Sources */,
 			);
