@@ -2,20 +2,21 @@
 
 import Foundation
 
-//var names = ["Vincent", "Spencer", "Erica", "Marilyn"]
-//
-//names.sort { (string1, string2) -> Bool in
-//	let reversed1 = String(string1.reversed())
-//	let reversed2 = String(string2.reversed())
-//
-//	if reversed1 <= reversed2 {
-//		return true
-//	} else {
-//		return false
-//	}
-//}
-//
-//print(names)
+var names = ["Vincent", "Spencer", "Erica", "Marilyn"]
+
+names.sort { (string1, string2) -> Bool in
+	let reversed1 = String(string1.reversed())
+	let reversed2 = String(string2.reversed())
+
+
+	if reversed1 <= reversed2 {
+		return true
+	} else {
+		return false
+	}
+}
+
+print(names)
 
 // -------------------------------------------------------
 // This is the shortened closure method
@@ -39,7 +40,7 @@ import Foundation
 // -------------------------------------------------------
 // This is the map function. It lets one replace every member of the array with something else.
 
-var names = ["Vincent", "Spencer", "Erica", "Marilyn", "Regine", "Irena", "Bob"]
+//var names = ["Vincent", "Spencer", "Erica", "Marilyn", "Regine", "Irena", "Bob"]
 
 // This is a regular algorithm and doesn't use the map function
 //var lengths: [Int] = []
@@ -109,7 +110,30 @@ let avg = ages.reduce(0.0, +) / Double(ages.count)
 print(avg)
 
 // -------------------------------------------------------
-
+/*
 func myMap(array: [String], closure: (String) -> String) -> [String] {
-	
+	var result = [String]()
+	for string in array {
+		let newString = closure(string)
+		result.append(newString)
+	}
+	return result
 }
+
+let names = ["Percy", "Erica", "Marilyn", "Wilma"]
+*/
+
+// This is the long version of the closure
+//let reversedNames = myMap(array: names) { (string) -> String in
+//	return String(string.reversed())
+//}
+
+// This is the abbreviated version
+/*
+let reversedNames = myMap(array: names) { String($0.reversed()) }
+
+print(reversedNames)
+*/
+
+// -------------------------------------------------------
+// Write your own version of fileter called myFilter(). It shuld take an array of strings and return an array of strings.
