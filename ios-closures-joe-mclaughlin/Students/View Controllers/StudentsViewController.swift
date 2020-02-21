@@ -17,6 +17,9 @@ class StudentsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Properties
+	private let studentController = StudentController()
+
+	private var students: [Student] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
