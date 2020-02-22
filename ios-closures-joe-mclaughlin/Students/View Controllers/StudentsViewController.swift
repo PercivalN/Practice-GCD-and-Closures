@@ -19,11 +19,28 @@ class StudentsViewController: UIViewController {
     // MARK: - Properties
 	private let studentController = StudentController()
 
-	private var students: [Student] = []
+	// Call didSet and have it updateDataSource
+	// If anything changes to the [Student] then updateDataSource()
+	private var students: [Student] = [] {
+		didSet {
+			updateDataSource()
+		}
+	}
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+		studentController.loadFromPersistentStore { students, error in
+			if let error = error {
+				print("Error loading students: \(error)")
+				return
+			}
+
+			DispatchQueue.main.async {
+				self.students = students ?? []
+			}
+
+		}
         tableView.dataSource = self
     }
     
@@ -38,19 +55,21 @@ class StudentsViewController: UIViewController {
     // MARK: - Private
     
     private func updateDataSource() {
-        
+		tableView.reloadData()
     }
 }
 
 extension StudentsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+		return students.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StudentCell", for: indexPath)
         
-        // Configure cell
+		let aStudent = students[indexPath.row]
+		cell.textLabel?.text = aStudent.name
+		cell.detailTextLabel?.text = aStudent.course
         
         return cell
     }
